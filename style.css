@@ -1,15 +1,60 @@
-/* css_main.css
-   Styles for korea/index.html (Namsan hero layout)
-   - Layers two full-width images for depth
-   - Positions logo bottom-right
-   - Adds optional 'Explore myeongdong' decorative overlay (cursive)
-   - Works alongside Bootstrap and animate.css
-*/
 
 /* Reset small things to keep images full-bleed */
 html, body {
   height: 100%;
   margin: 0;
+}
+
+.hero{
+  height: 100vh; /* full viewport height */
+  width: 100%;
+  background-image: url('koreaskyline.jpg');
+  background-size: cover; /* scale and crop to fill container */
+  background-position: center top; /* keep tower anchored toward top */
+  background-repeat: no-repeat;
+  display: block;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(101, 101, 101, 0.247);
+  z-index: 1;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+  padding: 0 1rem;
+  text-shadow: 0 2px 12px rgb(255, 255, 255);
+}
+
+.hero-content h1 {
+  font-size: 8.5rem;
+  font-family: 'Merriweather', serif;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+}
+
+.hero-content p {
+  font-size: clamp(1.1rem, 3vw, 2rem);
+  font-family: 'Inter', Arial, sans-serif;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 640px){
+  .hero{ height: 60vh; min-height: 48vh; }
+  .hero-content h1 { font-size: 2rem; }
+  .hero-content p { font-size: 1rem; }
 }
 
 /* Container holding layered hero images */
